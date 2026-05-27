@@ -8,6 +8,7 @@ void main() {
 }
 
 // 앱 공통 설정: 테마, 앱 이름, 첫 화면을 관리합니다.
+//홍준기 - 커밋 테스트
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
