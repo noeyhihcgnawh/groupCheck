@@ -22,5 +22,14 @@ void main() {
     expect(find.text('test_user님, 안녕하세요'), findsOneWidget);
     expect(find.text('프로젝트 피드'), findsOneWidget);
     expect(find.text('캠퍼스 매칭 서비스'), findsWidgets);
+    final noticeTitle = find.byKey(const Key('noticeSectionTitle'));
+    final beforeTapY = tester.getTopLeft(noticeTitle).dy;
+
+    await tester.tap(find.byKey(const Key('noticeJumpButton')));
+    await tester.pumpAndSettle();
+
+    final afterTapY = tester.getTopLeft(noticeTitle).dy;
+    expect(afterTapY, lessThan(beforeTapY));
+    expect(afterTapY, lessThan(160));
   });
 }
